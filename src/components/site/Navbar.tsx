@@ -36,8 +36,7 @@ export function Navbar() {
             <Cpu className="h-5 w-5 text-primary-foreground" />
           </span>
           <span className="text-base sm:text-lg">
-            {SITE.name.split(" ")[0]}
-            <span className="text-primary"> system</span>
+            galeo<span className="text-primary"> tek</span>
           </span>
         </Link>
 

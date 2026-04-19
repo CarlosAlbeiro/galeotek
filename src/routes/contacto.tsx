@@ -12,12 +12,12 @@ import { SITE, waLink } from "@/lib/site";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto — CAB system" },
+      { title: "Contacto — galeo tek" },
       {
         name: "description",
         content: `Contáctanos por WhatsApp ${SITE.whatsappDisplay} o escríbenos. Cobertura en ${SITE.coverage}.`,
       },
-      { property: "og:title", content: "Contacto — CAB system" },
+      { property: "og:title", content: "Contacto — galeo tek" },
       {
         property: "og:description",
         content: "Hablemos por WhatsApp o por nuestro formulario de contacto.",
@@ -41,7 +41,7 @@ function ContactPage() {
     }
     setLoading(true);
     // Mock: open WhatsApp prefilled
-    const text = `Hola CAB system, soy ${name}${email ? ` (${email})` : ""}. ${message}`;
+    const text = `Hola galeo tek, soy ${name}${email ? ` (${email})` : ""}. ${message}`;
     window.open(waLink(text), "_blank");
     setTimeout(() => {
       setLoading(false);

@@ -9,7 +9,7 @@ import { isAuthed, login } from "@/lib/admin-store";
 
 export const Route = createFileRoute("/admin/login")({
   head: () => ({
-    meta: [{ title: "Admin · Iniciar sesión — CAB system" }, { name: "robots", content: "noindex" }],
+    meta: [{ title: "Admin · Iniciar sesión — galeo tek" }, { name: "robots", content: "noindex" }],
   }),
   component: LoginPage,
 });
@@ -113,7 +113,7 @@ function LoginPage() {
         </div>
 
         <p className="mt-4 text-center text-xs text-muted-foreground">
-          Acceso restringido a administradores de CAB system.
+          Acceso restringido a administradores de galeo tek.
         </p>
       </div>
     </div>

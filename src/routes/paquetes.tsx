@@ -7,12 +7,12 @@ import { waLink } from "@/lib/site";
 export const Route = createFileRoute("/paquetes")({
   head: () => ({
     meta: [
-      { title: "Paquetes — CAB system" },
+      { title: "Paquetes — galeo tek" },
       {
         name: "description",
         content: "Paquetes integrales de tecnología para tu hogar y negocio. Precios claros, todo en uno.",
       },
-      { property: "og:title", content: "Paquetes — CAB system" },
+      { property: "og:title", content: "Paquetes — galeo tek" },
       {
         property: "og:description",
         content: "Soluciones combinadas para hogar y emprendedores con un mejor precio.",

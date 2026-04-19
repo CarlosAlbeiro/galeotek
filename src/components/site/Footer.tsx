@@ -12,7 +12,7 @@ export function Footer() {
               <Cpu className="h-5 w-5 text-primary-foreground" />
             </span>
             <span className="text-lg font-semibold">
-              CAB <span className="text-primary">system</span>
+              galeo <span className="text-primary">tek</span>
             </span>
           </Link>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
@@ -69,7 +69,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6">
-          <p>© {new Date().getFullYear()} CAB system. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} galeo tek. Todos los derechos reservados.</p>
           <p>Hecho con tecnología en {SITE.city}.</p>
         </div>
       </div>
