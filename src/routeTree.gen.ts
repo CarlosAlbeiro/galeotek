@@ -13,7 +13,12 @@ import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as PaquetesRouteImport } from './routes/paquetes'
 import { Route as NosotrosRouteImport } from './routes/nosotros'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminServiciosRouteImport } from './routes/admin.servicios'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminAjustesRouteImport } from './routes/admin.ajustes'
 
 const ServiciosRoute = ServiciosRouteImport.update({
   id: '/servicios',
@@ -35,18 +40,48 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminServiciosRoute = AdminServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAjustesRoute = AdminAjustesRouteImport.update({
+  id: '/ajustes',
+  path: '/ajustes',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/nosotros': typeof NosotrosRoute
   '/paquetes': typeof PaquetesRoute
   '/servicios': typeof ServiciosRoute
+  '/admin/ajustes': typeof AdminAjustesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/servicios': typeof AdminServiciosRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,25 +89,65 @@ export interface FileRoutesByTo {
   '/nosotros': typeof NosotrosRoute
   '/paquetes': typeof PaquetesRoute
   '/servicios': typeof ServiciosRoute
+  '/admin/ajustes': typeof AdminAjustesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/servicios': typeof AdminServiciosRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/nosotros': typeof NosotrosRoute
   '/paquetes': typeof PaquetesRoute
   '/servicios': typeof ServiciosRoute
+  '/admin/ajustes': typeof AdminAjustesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/servicios': typeof AdminServiciosRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacto' | '/nosotros' | '/paquetes' | '/servicios'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/contacto'
+    | '/nosotros'
+    | '/paquetes'
+    | '/servicios'
+    | '/admin/ajustes'
+    | '/admin/login'
+    | '/admin/servicios'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacto' | '/nosotros' | '/paquetes' | '/servicios'
-  id: '__root__' | '/' | '/contacto' | '/nosotros' | '/paquetes' | '/servicios'
+  to:
+    | '/'
+    | '/contacto'
+    | '/nosotros'
+    | '/paquetes'
+    | '/servicios'
+    | '/admin/ajustes'
+    | '/admin/login'
+    | '/admin/servicios'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/contacto'
+    | '/nosotros'
+    | '/paquetes'
+    | '/servicios'
+    | '/admin/ajustes'
+    | '/admin/login'
+    | '/admin/servicios'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   NosotrosRoute: typeof NosotrosRoute
   PaquetesRoute: typeof PaquetesRoute
@@ -109,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -116,11 +198,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/servicios': {
+      id: '/admin/servicios'
+      path: '/servicios'
+      fullPath: '/admin/servicios'
+      preLoaderRoute: typeof AdminServiciosRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ajustes': {
+      id: '/admin/ajustes'
+      path: '/ajustes'
+      fullPath: '/admin/ajustes'
+      preLoaderRoute: typeof AdminAjustesRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminAjustesRoute: typeof AdminAjustesRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminServiciosRoute: typeof AdminServiciosRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAjustesRoute: AdminAjustesRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminServiciosRoute: AdminServiciosRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   ContactoRoute: ContactoRoute,
   NosotrosRoute: NosotrosRoute,
   PaquetesRoute: PaquetesRoute,
