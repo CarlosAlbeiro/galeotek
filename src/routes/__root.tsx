@@ -30,14 +30,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CAB system — Soluciones tecnológicas para tu hogar y negocio" },
+      { title: "galeo tek — Soluciones tecnológicas para tu hogar y negocio" },
       {
         name: "description",
         content:
           "Software, electricidad, cámaras y asesoría tecnológica en Armenia, Quindío. Soluciones reales para tu hogar y emprendimiento.",
       },
-      { name: "author", content: "CAB system" },
-      { property: "og:title", content: "CAB system — Tecnología integral" },
+      { name: "author", content: "galeo tek" },
+      { property: "og:title", content: "galeo tek — Tecnología integral" },
       {
         property: "og:description",
         content: "Software, electricidad, cámaras y asesoría en un solo lugar.",

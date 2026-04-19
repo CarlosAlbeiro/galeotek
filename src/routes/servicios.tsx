@@ -10,13 +10,13 @@ import { waLink } from "@/lib/site";
 export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
-      { title: "Servicios — CAB system" },
+      { title: "Servicios — galeo tek" },
       {
         name: "description",
         content:
           "Desarrollo de software, páginas web, mantenimiento, servicios eléctricos, cámaras y asesoría tecnológica.",
       },
-      { property: "og:title", content: "Servicios — CAB system" },
+      { property: "og:title", content: "Servicios — galeo tek" },
       {
         property: "og:description",
         content: "Tecnología integral para tu hogar y negocio en Armenia, Quindío.",

@@ -6,16 +6,16 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/nosotros")({
   head: () => ({
     meta: [
-      { title: "Nosotros — CAB system" },
+      { title: "Nosotros — galeo tek" },
       {
         name: "description",
         content:
-          "CAB system: tecnología clara y soluciones reales con acompañamiento profesional en Armenia, Quindío.",
+          "galeo tek: tecnología clara y soluciones reales con acompañamiento profesional en Armenia, Quindío.",
       },
-      { property: "og:title", content: "Nosotros — CAB system" },
+      { property: "og:title", content: "Nosotros — galeo tek" },
       {
         property: "og:description",
-        content: "Conoce el equipo detrás de CAB system y nuestra forma de trabajar.",
+        content: "Conoce el equipo detrás de galeo tek y nuestra forma de trabajar.",
       },
     ],
   }),
