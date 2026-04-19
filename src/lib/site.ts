@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "CAB system",
+  name: "galeo tek",
   tagline: "Soluciones tecnológicas para tu hogar y negocio",
   subtitle: "Software, electricidad, cámaras y asesoría en un solo lugar",
   whatsappNumber: "573207282185",
@@ -9,5 +9,5 @@ export const SITE = {
   coverage: "Armenia y todo el Quindío",
 } as const;
 
-export const waLink = (message = "Hola CAB system, quisiera solicitar un servicio.") =>
+export const waLink = (message = "Hola galeo tek, quisiera solicitar un servicio.") =>
   `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
