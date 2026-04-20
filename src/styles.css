@@ -23,7 +23,7 @@
 
   /* Electric cyan as primary brand */
   --primary: oklch(0.78 0.18 210);
-  --primary-foreground: oklch(0.14 0.04 260);
+  --primary-foreground: oklch(1 0 0);
 
   --secondary: oklch(0.27 0.04 260);
   --secondary-foreground: oklch(0.96 0.01 240);
@@ -33,7 +33,7 @@
 
   /* Neon green accent */
   --accent: oklch(0.85 0.21 150);
-  --accent-foreground: oklch(0.14 0.04 260);
+  --accent-foreground: oklch(1 0 0);
 
   --destructive: oklch(0.65 0.24 22);
   --destructive-foreground: oklch(0.98 0.01 240);
@@ -51,7 +51,7 @@
   --sidebar: oklch(0.18 0.03 260);
   --sidebar-foreground: oklch(0.96 0.01 240);
   --sidebar-primary: oklch(0.78 0.18 210);
-  --sidebar-primary-foreground: oklch(0.14 0.04 260);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.27 0.04 260);
   --sidebar-accent-foreground: oklch(0.96 0.01 240);
   --sidebar-border: oklch(1 0 0 / 10%);
@@ -59,7 +59,7 @@
 
   /* Custom tokens */
   --neon: oklch(0.85 0.21 150);
-  --neon-foreground: oklch(0.14 0.04 260);
+  --neon-foreground: oklch(1 0 0);
   --glow: oklch(0.78 0.18 210);
 
   --gradient-hero: radial-gradient(
