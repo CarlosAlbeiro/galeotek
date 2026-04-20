@@ -1,8 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SITE } from "@/lib/site";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -42,15 +41,21 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground bg-white/5" }}
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                cn(
+                  "rounded-md px-3 py-2 text-sm transition-colors",
+                  isActive
+                    ? "text-foreground bg-white/5"
+                    : "text-muted-foreground hover:text-foreground",
+                )
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
           <Link
             to="/admin/login"
@@ -74,16 +79,20 @@ export function Navbar() {
         <div className="border-t border-white/10 bg-background/95 backdrop-blur-xl md:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col px-4 py-3">
             {links.map((l) => (
-              <Link
+              <NavLink
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: l.to === "/" }}
-                className="rounded-md px-3 py-3 text-sm text-muted-foreground"
-                activeProps={{ className: "text-foreground bg-white/5" }}
+                end={l.to === "/"}
+                className={({ isActive }) =>
+                  cn(
+                    "rounded-md px-3 py-3 text-sm",
+                    isActive ? "text-foreground bg-white/5" : "text-muted-foreground",
+                  )
+                }
               >
                 {l.label}
-              </Link>
+              </NavLink>
             ))}
             <Link
               to="/admin/login"
