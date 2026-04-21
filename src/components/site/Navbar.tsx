@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import profileImage from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -31,9 +32,11 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-[var(--gradient-primary)] shadow-glow">
-            <Cpu className="h-5 w-5 text-primary-foreground" />
-          </span>
+          <img
+              src={profileImage}
+              alt="Galeo Tek"
+              className="h-20 w-20 object-contain drop-shadow-md"
+            />
           <span className="text-base sm:text-lg">
             galeo<span className="text-primary"> tek</span>
           </span>
@@ -57,12 +60,7 @@ export function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Link
-            to="/admin/login"
-            className="ml-2 rounded-md border border-white/10 px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
-          >
-            Admin
-          </Link>
+
         </nav>
 
         <button
@@ -94,13 +92,7 @@ export function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            <Link
-              to="/admin/login"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-md border border-white/10 px-3 py-3 text-sm text-muted-foreground"
-            >
-              Admin
-            </Link>
+
           </nav>
         </div>
       )}

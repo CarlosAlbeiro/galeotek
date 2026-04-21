@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Cpu, Mail, MapPin, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
+import profileImage from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -8,9 +9,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-[var(--gradient-primary)] shadow-glow">
-              <Cpu className="h-5 w-5 text-primary-foreground" />
-            </span>
+          <img
+              src={profileImage}
+              alt="Galeo Tek"
+              className="h-20 w-20 object-contain drop-shadow-md"
+            />
             <span className="text-lg font-semibold">
               galeo <span className="text-primary">tek</span>
             </span>
@@ -69,7 +72,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6">
-          <p>© {new Date().getFullYear()} galeo tek. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} galeo tek<Link to="/admin/login">.</Link> Todos los derechos reservados.</p>
           <p>Hecho con tecnología en {SITE.city}.</p>
         </div>
       </div>
