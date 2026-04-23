@@ -19,15 +19,22 @@ export default function LoginPage() {
     if (isAuthed()) nav("/admin", { replace: true });
   }, [nav]);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      const ok = login(user, pass);
+    try {
+      const ok = await login(user, pass);
       setLoading(false);
-      if (ok) { toast.success("Bienvenido al panel"); nav("/admin"); }
-      else toast.error("Credenciales incorrectas");
-    }, 350);
+      if (ok) {
+        toast.success("Bienvenido al panel");
+        nav("/admin");
+      } else {
+        toast.error("Credenciales incorrectas");
+      }
+    } catch (error) {
+      setLoading(false);
+      toast.error("Error al conectar con el servidor");
+    }
   };
 
   return (

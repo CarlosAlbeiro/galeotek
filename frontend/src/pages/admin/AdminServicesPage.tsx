@@ -28,23 +28,31 @@ export default function AdminServicesPage() {
   const openNew = () => { setDraft(empty); setOpen(true); };
   const openEdit = (s: ServiceItem) => { setDraft({ ...s }); setOpen(true); };
 
-  const save = () => {
+  const save = async () => {
     if (!draft.title.trim() || !draft.description.trim()) { toast.error("Completa título y descripción."); return; }
-    if (draft.id) {
-      updateService(draft.id, { title: draft.title, description: draft.description, icon: draft.icon, active: draft.active });
-      toast.success("Servicio actualizado");
-    } else {
-      createService({ title: draft.title, description: draft.description, icon: draft.icon, active: draft.active });
-      toast.success("Servicio creado");
+    try {
+      if (draft.id) {
+        await updateService(draft.id, { title: draft.title, description: draft.description, icon: draft.icon, active: draft.active });
+        toast.success("Servicio actualizado");
+      } else {
+        await createService({ title: draft.title, description: draft.description, icon: draft.icon, active: draft.active });
+        toast.success("Servicio creado");
+      }
+      setOpen(false);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Error al guardar el servicio");
     }
-    setOpen(false);
   };
 
-  const confirmDelete = () => {
+  const confirmDelete = async () => {
     if (!toDelete) return;
-    deleteService(toDelete.id);
-    toast.success(`"${toDelete.title}" eliminado`);
-    setToDelete(null);
+    try {
+      await deleteService(toDelete.id);
+      toast.success(`"${toDelete.title}" eliminado`);
+      setToDelete(null);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Error al eliminar el servicio");
+    }
   };
 
   return (
