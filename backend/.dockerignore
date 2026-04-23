@@ -6,6 +6,5 @@ dist
 .gitignore
 Dockerfile
 .dockerignore
-tsconfig.json
 README.md
 scaffold.js
