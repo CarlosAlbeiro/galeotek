@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+*.log
+.git
+.gitignore
+Dockerfile
+.dockerignore
+tsconfig.json
+README.md
+scaffold.js
